@@ -1,9 +1,8 @@
 from flask import Flask, redirect, render_template
 import os
+import psycopg2
 
 app = Flask(__name__)
-
-# make dynamic page
 
 
 @app.route('/')
@@ -29,6 +28,11 @@ def fun():
 @app.route('/home/branch')
 def branch():
     return render_template('branch.html')
+
+
+@app.route('/post/<id>')
+def post(id):
+    return f'Hello {id}'
 
 
 if __name__ == '__main__':
